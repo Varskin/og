@@ -5,7 +5,7 @@
   "game": {
     "type": "Playing",
     "name": [
-      "with Ganymede"
+      "#!help"
     ],
     "url": "",
     "interval": 60
