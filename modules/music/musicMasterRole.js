@@ -63,7 +63,6 @@ exports.exec = async (Bastion, message, args) => {
 exports.config = {
   aliases: [ 'musicmaster' ],
   enabled: true,
-  ownerOnly: true
 };
 
 exports.help = {
