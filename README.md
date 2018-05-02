@@ -10,16 +10,12 @@ WildBeast is a multipurpose Discord bot intended to be able to perform various t
 ## Main features
 
 - Music streaming from YouTube, SoundCloud etc.
-- Classy insults
-- Dank meme generation system with your own parameters
-- Useful advice
 - Moderation commands (Ban, kick)
-- NSFW images via e621 and rule34 (If you choose to allow them)
-- Search for comics via XKCD
+- Currency/economy system (daily, gamble)
 - Extended server functionality (Welcome messages, server and user info)
 - Role management commands (Manage roles of users, change role color)
 - High level of customization (Changing messages on a per-server basis, permission level system)
-- And more, check the [full command reference](http://docs.thesharks.xyz/commands/) for all the commands!
+- And more, join our [discord](https://discord.gg/XnYbAn) for a list of all the commands!
 
 Join our [discord](https://discord.gg/XnYbAn) for more information.
 
