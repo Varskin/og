@@ -84,7 +84,7 @@ exports.config = {
     { name: 'id', type: String, defaultOption: true },
     { name: 'remove', alias: 'r', type: Boolean }
   ],
-  guildOwnerOnly = true,
+  guildOwnerOnly: true,
 };
 
 exports.help = {
