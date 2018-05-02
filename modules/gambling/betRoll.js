@@ -11,7 +11,7 @@ exports.exec = async (Bastion, message, args) => {
     let cooldown = 60;
 
     if (!recentUsers.includes(message.author.id)) {
-      if (!args.money || args.money < 1 || !/^(one|two|three|four|five|six)$/i.test(args.outcome)) {
+      if (!args.money || args.money < 1) {
         /**
         * The command was ran with invalid parameters.
         * @fires commandUsage
@@ -34,9 +34,6 @@ exports.exec = async (Bastion, message, args) => {
         'one',
         'two',
         'three',
-        'four',
-        'five',
-        'six'
       ];
       let outcome = outcomes[Math.floor(Math.random() * outcomes.length)];
 
@@ -61,9 +58,9 @@ exports.exec = async (Bastion, message, args) => {
       recentUsers.push(message.author.id);
 
       let result;
-      if (outcome.toLowerCase() === args.outcome.toLowerCase()) {
+      if ('one' === args.outcome.toLowerCase()) {
         let prize = args.money < 50 ? args.money + outcomes.length : args.money < 100 ? args.money : args.money * 2;
-        result = `Congratulations! You won the bet.\nYou won **${prize}** Bastion Currencies.`;
+        result = `Congratulations! You won.\nYou won **${prize}** Bastion Currencies.`;
 
         /**
         * User's account is debited with Bastion Currencies
@@ -72,7 +69,7 @@ exports.exec = async (Bastion, message, args) => {
         Bastion.emit('userDebit', message.member, prize);
       }
       else {
-        result = 'Sorry, you lost the bet. Better luck next time.';
+        result = 'Sorry, you lost. Better luck next time.';
 
         /**
         * User's account is credited with Bastion Currencies
@@ -110,16 +107,15 @@ exports.config = {
   aliases: [ 'br' ],
   enabled: true,
   argsDefinitions: [
-    { name: 'outcome', type: String, alias: 'o', defaultOption: true },
-    { name: 'money', type: Number, alias: 'm' }
+    { name: 'money', type: Number, alias: 'o' }
   ]
 };
 
 exports.help = {
-  name: 'betRoll',
+  name: 'gamble',
   botPermission: '',
   userTextPermission: '',
   userVoicePermission: '',
-  usage: 'betroll < one/two/three/four/five/six > <-m amount>',
-  example: [ 'betroll three -m 100' ]
+  usage: 'gamble <amount>',
+  example: [ 'gamble 100' ]
 };
