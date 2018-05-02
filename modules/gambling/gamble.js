@@ -107,7 +107,7 @@ exports.config = {
   aliases: [ 'br' ],
   enabled: true,
   argsDefinitions: [
-    { name: 'money', type: Number, alias: 'o' }
+    { name: 'money', type: Number, alias: 'm' }
   ]
 };
 
