@@ -58,7 +58,7 @@ exports.exec = async (Bastion, message, args) => {
       recentUsers.push(message.author.id);
 
       let result;
-      if ('one' === args.outcome.toLowerCase()) {
+      if (outcome.toLowerCase() === 'one') {
         let prize = args.money < 50 ? args.money + outcomes.length : args.money < 100 ? args.money : args.money * 2;
         result = `Congratulations! You won.\nYou won **${prize}** Bastion Currencies.`;
 
