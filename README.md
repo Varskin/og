@@ -1,4 +1,4 @@
-[![Bastion Logo Dark](https://resources.bastionbot.org/logos/Bastion_Logotype_CD.png)](https://bastionbot.org 'The Bastion Bot')
+[![Bastion Logo Dark](https://superbot.pinnacle.works/wp-content/uploads/sites/2/2018/01/logo-3.png)](https://bastionbot.org 'The Bastion Bot')
 
 <div align='center'>
 
