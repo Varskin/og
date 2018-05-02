@@ -3,7 +3,7 @@
 
 ---
 
-WildBeast is a multipurpose Discord bot intended to be able to perform various tasks, ranging from easy server moderation to having fun with music in your Discord server. Written in JavaScript [Node.JS](https://nodejs.org), using the [discordie](https://qeled.github.io/discordie) library.
+Superbot is a multipurpose Discord bot intended to be able to perform various tasks, ranging from easy server moderation to having fun with music in your Discord server. Written in JavaScript [Node.JS](https://nodejs.org), using the [discordie](https://qeled.github.io/discordie) library.
 
 ---
 
