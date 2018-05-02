@@ -11,7 +11,7 @@ Superbot is a multipurpose Discord bot intended to be able to perform various ta
 
 - Music streaming from YouTube, SoundCloud etc.
 - Moderation commands (Ban, kick)
-- Currency/economy system (daily, gamble)
+- Currency system (Daily, gamble)
 - Extended server functionality (Welcome messages, server and user info)
 - Role management commands (Manage roles of users, change role color)
 - High level of customization (Changing messages on a per-server basis, permission level system)
