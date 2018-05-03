@@ -68,7 +68,7 @@ exports.exec = async (Bastion, message, args) => {
         Bastion.emit('userDebit', message.member, prize);
       }
       else {
-        result = 'Sorry, you lost. Better luck next time.';
+        result = 'Sorry, you lost. Better luck next time. You now have {args.money}';
 
         /**
         * User's account is credited with Bastion Currencies
@@ -80,7 +80,6 @@ exports.exec = async (Bastion, message, args) => {
       await message.channel.send({
         embed: {
           color: Bastion.colors.BLUE,
-          title: ``,
           description: result
         }
       });
