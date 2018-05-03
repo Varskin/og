@@ -72,7 +72,8 @@ exports.exec = async (Bastion, message, args) => {
         Bastion.emit('userDebit', message.member, prize);
       }
       else {
-        result = 'Sorry, you lost. Better luck next time.';
+        let curr = parseInt(guildMemberModel.dataValues.bastionCurrencies)-parseInt(args.money);
+        result = 'Sorry, you lost. Better luck next time. You now have **${curr}**';
 
         /**
         * User's account is credited with Bastion Currencies
