@@ -83,6 +83,13 @@ exports.exec = async (Bastion, message, args) => {
           description: result
         }
       });
+      let curr = guildMemberModel.dataValues.bastionCurrencies;
+      await message.channel.send({
+        embed: {
+          color: Bastion.colors.BLUE,
+          description: curr
+        }
+      });
 
       setTimeout(() => {
         recentUsers.splice(recentUsers.indexOf(message.author.id), 1);
