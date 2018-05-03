@@ -60,20 +60,14 @@ exports.exec = async (Bastion, message, args) => {
       let result;
       if (outcome.toLowerCase() === 'one') {
         let prize = args.money < 50 ? args.money + outcomes.length : args.money < 100 ? args.money : args.money * 2;
-        prizer = prize;
-        result = `Congratulations! You won.\nYou won **${prize}** Bastion Currencies.`;
+        let curr = guildMemberModel.dataValues.bastionCurrencies;
+        let curr2 = parseInt(prize)+parseInt(curr);
+        result = `Congratulations! You won.\nYou won **${prize}**. You now have **${curr2}**`;
 
         /**
         * User's account is debited with Bastion Currencies
         * @fires userDebit
         */
-        let curr = guildMemberModel.dataValues.bastionCurrencies;
-        await message.channel.send({
-        embed: {
-          color: Bastion.colors.BLUE,
-          description: parseInt(prize)+parseInt(curr)
-        }
-      });
         
         Bastion.emit('userDebit', message.member, prize);
       }
@@ -94,9 +88,6 @@ exports.exec = async (Bastion, message, args) => {
         }
       });
       
-      
-      
-
       setTimeout(() => {
         recentUsers.splice(recentUsers.indexOf(message.author.id), 1);
       }, cooldown * 0);
