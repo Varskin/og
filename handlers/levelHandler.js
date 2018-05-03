@@ -26,7 +26,8 @@ module.exports = async message => {
         guildID: message.guild.id
       },
       defaults: {
-        experiencePoints: 1
+        experiencePoints: 1,
+        level: 1
       }
     });
     if (initialized) {
