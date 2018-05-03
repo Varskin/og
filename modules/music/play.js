@@ -323,10 +323,6 @@ function startStreamDispatcher(guild, connection) {
     guild.client.log.error(e);
   });
 
-  if (guild.client.config.music && guild.client.config.music.status) {
-    guild.client.user.setActivity(guild.music.songs[0].title);
-  }
-
   guild.music.dispatcher.on('end', () => {
     guild.music.playing = false;
     guild.music.skipVotes = [];
