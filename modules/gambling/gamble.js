@@ -106,7 +106,8 @@ exports.config = {
   aliases: [ 'gb' ],
   enabled: true,
   argsDefinitions: [
-    { name: 'money', type: Number}
+     { name: 'outcome', type: String, alias: 'o', defaultOption: true },
+    { name: 'money', type: Number, alias: 'm' }
   ]
 };
 
