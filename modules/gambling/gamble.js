@@ -9,7 +9,20 @@ let recentUsers = [];
 exports.exec = async (Bastion, message, args) => {
   try {
     let cooldown = 60;
-
+     await message.channel.send({
+        embed: {
+          color: Bastion.colors.BLUE,
+          title: `test`,
+          description: args
+        }
+      });
+    await message.channel.send({
+        embed: {
+          color: Bastion.colors.BLUE,
+          title: `test`,
+          description: args.money
+        }
+      });
     if (!recentUsers.includes(message.author.id)) {
       if (!args.money || args.money < 1) {
         /**
@@ -104,7 +117,7 @@ exports.exec = async (Bastion, message, args) => {
 };
 
 exports.config = {
-  aliases: [ 'br' ],
+  aliases: [ 'gb' ],
   enabled: true,
   argsDefinitions: [
     { name: 'money', type: Number}
