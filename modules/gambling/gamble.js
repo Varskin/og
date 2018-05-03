@@ -55,7 +55,6 @@ exports.exec = async (Bastion, message, args) => {
       }
 
       recentUsers.push(message.author.id);
-      let prizer;
 
       let result;
       if (outcome.toLowerCase() === 'one') {
@@ -74,7 +73,7 @@ exports.exec = async (Bastion, message, args) => {
       else {
         let curr = guildMemberModel.dataValues.bastionCurrencies;
         let curr2 = parseInt(curr)-parseInt(args.money);
-        result = 'Sorry, you lost. Better luck next time. You now have **${curr2}** dollars.';
+        result = `Sorry, you lost. Better luck next time. You now have **${curr2}** dollars.`;
 
         /**
         * User's account is credited with Bastion Currencies
