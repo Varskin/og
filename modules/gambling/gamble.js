@@ -55,10 +55,12 @@ exports.exec = async (Bastion, message, args) => {
       }
 
       recentUsers.push(message.author.id);
+      let prizer;
 
       let result;
       if (outcome.toLowerCase() === 'one') {
         let prize = args.money < 50 ? args.money + outcomes.length : args.money < 100 ? args.money : args.money * 2;
+        prizer = prize;
         result = `Congratulations! You won.\nYou won **${prize}** Bastion Currencies.`;
 
         /**
@@ -88,7 +90,7 @@ exports.exec = async (Bastion, message, args) => {
       await message.channel.send({
         embed: {
           color: Bastion.colors.BLUE,
-          description: prize
+          description: prize+curr
         }
       });
 
