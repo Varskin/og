@@ -143,7 +143,7 @@ module.exports = (args, opts) => {
         setArg(key, flags.strings[key] ? '' : true, arg);
       }
     }
-    else if (/^-[^-]+/.test(arg)) {
+    else if (arg) {
       let letters = arg.slice(1, -1).split('');
 
       let broken = false;
