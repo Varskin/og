@@ -76,6 +76,14 @@ exports.exec = async (Bastion, message, args) => {
         */
         Bastion.emit('userCredit', message.member, args.money);
       }
+      
+      await message.channel.send({
+        embed: {
+          color: Bastion.colors.BLUE,
+          title: ``,
+          description: result
+        }
+      });
 
       setTimeout(() => {
         recentUsers.splice(recentUsers.indexOf(message.author.id), 1);
