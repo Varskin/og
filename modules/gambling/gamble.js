@@ -32,7 +32,6 @@ exports.exec = async (Bastion, message, args) => {
       let outcomes = [
         'one',
         'two',
-        'three',
       ];
       let outcome = outcomes[Math.floor(Math.random() * outcomes.length)];
 
