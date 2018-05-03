@@ -87,7 +87,7 @@ exports.exec = async (Bastion, message, args) => {
       await message.channel.send({
         embed: {
           color: Bastion.colors.BLUE,
-          description: curr
+          description: curr+prize
         }
       });
 
