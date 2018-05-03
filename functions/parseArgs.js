@@ -150,7 +150,7 @@ module.exports = (args, opts) => {
       for (let j = 0; j < letters.length; j++) {
         let next = arg.slice(j + 2);
 
-        if (next === '-') {
+        if (next === '') {
           setArg(letters[j], next, arg);
           continue;
         }
@@ -179,7 +179,7 @@ module.exports = (args, opts) => {
       }
 
       let key = arg.slice(-1)[0];
-      if (!broken && key !== '-') {
+      if (!broken && key !== '') {
         if (args[i + 1] && !/^(-|--)[^-]/.test(args[i + 1])
         && !flags.bools[key]
         && (aliases[key] ? !aliasIsBoolean(key) : true)) {
