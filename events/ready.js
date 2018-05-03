@@ -12,15 +12,15 @@ module.exports = async Bastion => {
       await Bastion.shard.broadcastEval('process.env.SHARDS_READY = true');
     }
     
-    let guilds = Bastion.shard ? await Bastion.shard.broadcastEval('this.guilds.size') : Bastion.guilds.size;
-    if (guilds instanceof Array) {
-      guilds = guilds.reduce((sum, val) => sum + val, 0);
+    let guilds2 = Bastion.shard ? await Bastion.shard.broadcastEval('this.guilds.size') : Bastion.guilds.size;
+    if (guilds2 instanceof Array) {
+      guilds2 = guilds2.reduce((sum, val) => sum + val, 0);
     }
     
     Bastion.user.setPresence({
       status: Bastion.config.status,
       game: {
-        name: `${guilds.toHumanString()} servers | ${Bastion.config.game.name}`,
+        name: `${guilds2.toHumanString()} servers | ${Bastion.config.game.name}`,
         type: Bastion.config.game.type,
         url: Bastion.config.game.url && Bastion.config.game.url.trim().length ? Bastion.config.game.url : null
       }
