@@ -20,7 +20,7 @@ module.exports = async Bastion => {
     Bastion.user.setPresence({
       status: Bastion.config.status,
       game: {
-        name: typeof Bastion.config.game.name === 'string' ? `${guilds.toHumanString()} Servers | ${Bastion.config.game.name}` : Bastion.config.game.name.length ? Bastion.config.game.name[0] : null,
+        name: `${guilds.toHumanString()} servers | ${Bastion.config.game.name}`,
         type: Bastion.config.game.type,
         url: Bastion.config.game.url && Bastion.config.game.url.trim().length ? Bastion.config.game.url : null
       }
