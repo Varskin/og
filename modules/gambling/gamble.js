@@ -8,7 +8,7 @@ let recentUsers = [];
 
 exports.exec = async (Bastion, message, args) => {
   try {
-    let cooldown = 60;
+    let cooldown = 0;
     if (!recentUsers.includes(message.author.id)) {
       if (!args.money || args.money < 1) {
         /**
@@ -71,7 +71,7 @@ exports.exec = async (Bastion, message, args) => {
         await message.channel.send({
         embed: {
           color: Bastion.colors.BLUE,
-          description: prize+curr
+          description: parseInt(prize)+parseInt(curr)
         }
       });
         
