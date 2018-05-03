@@ -10,7 +10,7 @@ exports.exec = async (Bastion, message, args) => {
   try {
     let cooldown = 0;
     if (!recentUsers.includes(message.author.id)) {
-      if (!args.money || args.money < 1) {
+      if (!args || args < 1) {
         /**
         * The command was ran with invalid parameters.
         * @fires commandUsage
@@ -18,10 +18,10 @@ exports.exec = async (Bastion, message, args) => {
         return Bastion.emit('commandUsage', message, this.help);
       }
 
-      args.money = parseInt(args.money);
+      args = parseInt(args);
 
       let minAmount = 5;
-      if (args.money < minAmount) {
+      if (args < minAmount) {
         /**
         * Error condition is encountered.
         * @fires error
@@ -46,7 +46,7 @@ exports.exec = async (Bastion, message, args) => {
 
       guildMemberModel.dataValues.bastionCurrencies = parseInt(guildMemberModel.dataValues.bastionCurrencies);
 
-      if (args.money > guildMemberModel.dataValues.bastionCurrencies) {
+      if (args > guildMemberModel.dataValues.bastionCurrencies) {
         /**
         * Error condition is encountered.
         * @fires error
@@ -58,7 +58,7 @@ exports.exec = async (Bastion, message, args) => {
 
       let result;
       if (outcome.toLowerCase() === 'one') {
-        let prize = args.money < 50 ? args.money + outcomes.length : args.money < 100 ? args.money : args.money * 2;
+        let prize = args < 50 ? args + outcomes.length : args < 100 ? args : args * 2;
         let curr = guildMemberModel.dataValues.bastionCurrencies;
         let curr2 = parseInt(prize)+parseInt(curr);
         result = `Congratulations! You won.\nYou won **${prize}** dollars. You now have **${curr2}** dollars.`;
@@ -72,14 +72,14 @@ exports.exec = async (Bastion, message, args) => {
       }
       else {
         let curr = guildMemberModel.dataValues.bastionCurrencies;
-        let curr2 = parseInt(curr)-parseInt(args.money);
+        let curr2 = parseInt(curr)-parseInt(args);
         result = `Sorry, you lost. Better luck next time. You now have **${curr2}** dollars.`;
 
         /**
         * User's account is credited with Bastion Currencies
         * @fires userCredit
         */
-        Bastion.emit('userCredit', message.member, args.money);
+        Bastion.emit('userCredit', message.member, args);
       }
       
       await message.channel.send({
@@ -109,10 +109,6 @@ exports.exec = async (Bastion, message, args) => {
 exports.config = {
   aliases: [ 'gb' ],
   enabled: true,
-  argsDefinitions: [
-     { name: 'outcome', type: String, alias: 'o', defaultOption: true },
-    { name: 'money', type: Number, alias: 'm' }
-  ]
 };
 
 exports.help = {
