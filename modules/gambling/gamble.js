@@ -62,7 +62,7 @@ exports.exec = async (Bastion, message, args) => {
         let prize = args.money < 50 ? args.money + outcomes.length : args.money < 100 ? args.money : args.money * 2;
         let curr = guildMemberModel.dataValues.bastionCurrencies;
         let curr2 = parseInt(prize)+parseInt(curr);
-        result = `Congratulations! You won.\nYou won $**${prize}**. You now have $**${curr2}**`;
+        result = `Congratulations! You won.\nYou won **${prize}** dollars. You now have **${curr2}** dollars.`;
 
         /**
         * User's account is debited with Bastion Currencies
@@ -73,7 +73,7 @@ exports.exec = async (Bastion, message, args) => {
       }
       else {
         let curr = parseInt(guildMemberModel.dataValues.bastionCurrencies)-parseInt(args.money);
-        result = 'Sorry, you lost. Better luck next time. You now have $**${curr}**';
+        result = 'Sorry, you lost. Better luck next time. You now have **${curr}** dollars.';
 
         /**
         * User's account is credited with Bastion Currencies
