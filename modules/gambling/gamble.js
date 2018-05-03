@@ -67,10 +67,18 @@ exports.exec = async (Bastion, message, args) => {
         * User's account is debited with Bastion Currencies
         * @fires userDebit
         */
+        let curr = guildMemberModel.dataValues.bastionCurrencies;
+        await message.channel.send({
+        embed: {
+          color: Bastion.colors.BLUE,
+          description: prize+curr
+        }
+      });
+        
         Bastion.emit('userDebit', message.member, prize);
       }
       else {
-        result = 'Sorry, you lost. Better luck next time. You now have ${guildMemberModel.dataValues.bastionCurrencies}';
+        result = 'Sorry, you lost. Better luck next time.';
 
         /**
         * User's account is credited with Bastion Currencies
@@ -85,14 +93,9 @@ exports.exec = async (Bastion, message, args) => {
           description: result
         }
       });
-      let curr = guildMemberModel.dataValues.bastionCurrencies;
       
-      await message.channel.send({
-        embed: {
-          color: Bastion.colors.BLUE,
-          description: prizer+curr
-        }
-      });
+      
+      
 
       setTimeout(() => {
         recentUsers.splice(recentUsers.indexOf(message.author.id), 1);
