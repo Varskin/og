@@ -12,15 +12,6 @@ module.exports = async Bastion => {
       await Bastion.shard.broadcastEval('process.env.SHARDS_READY = true');
     }
 
-    Bastion.user.setPresence({
-      status: Bastion.config.status,
-      game: {
-        name: typeof Bastion.config.game.name === 'string' ? Bastion.config.game.name : Bastion.config.game.name.length ? Bastion.config.game.name[0] : null,
-        type: Bastion.config.game.type,
-        url: Bastion.config.game.url && Bastion.config.game.url.trim().length ? Bastion.config.game.url : null
-      }
-    });
-
     if (typeof Bastion.config.game.name !== 'string' && Bastion.config.game.name.length) {
       Bastion.setInterval(async () => {
         try {
@@ -144,6 +135,15 @@ module.exports = async Bastion => {
         },
         timestamp: new Date()
       });
+      
+      Bastion.user.setPresence({
+      status: Bastion.config.status,
+      game: {
+        name: typeof Bastion.config.game.name === 'string' ? `${guilds} servers | ${Bastion.config.game.name}` : Bastion.config.game.name.length ? Bastion.config.game.name[0] : null,
+        type: Bastion.config.game.type,
+        url: Bastion.config.game.url && Bastion.config.game.url.trim().length ? Bastion.config.game.url : null
+      }
+    });
     }
   }
   catch (e) {
