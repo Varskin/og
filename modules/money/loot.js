@@ -52,7 +52,7 @@ exports.exec = async (Bastion, message) => {
     message.channel.send({
       embed: {
         color: Bastion.colors.GREEN,
-        description: `Your account has been debited with **${rewardAmount}** Bastion Currencies. You now have **${curr2}** dollars.`
+        description: `Your account has been debited with **${rewardAmount}** dollars. You now have **${curr2}** dollars.`
       }
     }).catch(e => {
       if (e.code !== 50007) {
