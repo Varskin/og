@@ -33,10 +33,9 @@ module.exports = async message => {
       ]
     });
     
-    if(message.isMentioned(client.users.get('419667532820250635'))) {
+    if(message.isMentioned(message.client.users.get('419667532820250635'))) {
       message.channel.send({
       embed: {
-        color: Bastion.colors.BLUE,
         description: 'https://discord.gg/Q7Kgd8g'
       }
     })
