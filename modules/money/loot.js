@@ -49,14 +49,14 @@ exports.exec = async (Bastion, message) => {
       }
     });
   }
-  catch (e) {
-    Bastion.log.error(e);
-  }
     }
       else
       {
     return Bastion.emit('error', Bastion.strings.error(message.guild.language, 'cooldown'), Bastion.strings.error(message.guild.language, 'claimCooldown', true, message.author), message.channel);
     }
+  catch (e) {
+    Bastion.log.error(e);
+  }
 };
 
 exports.config = {
