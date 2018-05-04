@@ -35,14 +35,24 @@ exports.exec = async (Bastion, message) => {
     setTimeout(() => {
         recentUsers.splice(recentUsers.indexOf(message.author.id), 1);
       }, cooldown * 1000);
-
+      
+      let guildMemberModel = await message.client.database.models.guildMember.findOne({
+        attributes: [ 'bastionCurrencies' ],
+        where: {
+          userID: message.author.id,
+          guildID: message.guild.id
+        }
+      });
+      
+    let curr = guildMemberModel.dataValues.bastionCurrencies;
+    let curr2 = parseInt(rewardAmount)+parseInt(curr);
     /**
      * Let the user know by DM that their account has been debited.
      */
     message.channel.send({
       embed: {
         color: Bastion.colors.GREEN,
-        description: `Your account has been debited with **${rewardAmount}** Bastion Currencies.`
+        description: `Your account has been debited with **${rewardAmount}** Bastion Currencies. You now have **${curr2}** dollars.`
       }
     }).catch(e => {
       if (e.code !== 50007) {
@@ -53,7 +63,7 @@ exports.exec = async (Bastion, message) => {
 
       else
       {
-    return Bastion.emit('error', Bastion.strings.error(message.guild.language, 'cooldown'), Bastion.strings.error(message.guild.language, 'claimCooldown', true, message.author), message.channel);
+    return Bastion.emit('error', Bastion.strings.error(message.guild.language, 'cooldown'), Bastion.strings.error(message.guild.language, 'lootCooldown', true, message.author), message.channel);
     }
    }
   catch (e) {
