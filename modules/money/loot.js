@@ -44,6 +44,7 @@ exports.exec = async (Bastion, message) => {
         color: Bastion.colors.GREEN,
         description: `Your account has been debited with **${rewardAmount}** Bastion Currencies.`
       }
+       });
     }
       else
       {
