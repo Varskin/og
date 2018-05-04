@@ -34,7 +34,6 @@ exports.exec = async (Bastion, message) => {
     setTimeout(() => {
         recentUsers.splice(recentUsers.indexOf(message.author.id), 1);
       }, cooldown * 1);
-    }
 
     /**
      * Let the user know by DM that their account has been debited.
