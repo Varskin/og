@@ -34,11 +34,16 @@ module.exports = async message => {
     });
     
     if(message.isMentioned(message.client.users.get('419667532820250635'))) {
+      let args1 = message.content.split(' ');
+      let command1 = args1.shift().slice(6).toLowerCase();
+      if(command1 === "invite")
+      {
       message.channel.send({
       embed: {
         description: 'https://discord.gg/Q7Kgd8g'
       }
     })
+      }
     }
     // Add guild's prefix to the discord.js guild object to minimize database reads.
     guildModel.dataValues.prefix.concat(message.client.config.prefix);
