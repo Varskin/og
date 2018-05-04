@@ -36,7 +36,7 @@ module.exports = async message => {
       if((message.content.indexOf('invite') > 0 || message.content.indexOf('Invite') > 0)  && message.isMentioned(message.client.users.get('419667532820250635'))) {
         message.channel.send({
         embed: {
-          description: "https://discordapp.com/oauth2/authorize?client_id=419667532820250635&scope=bot&permissions=2146958463"
+          description: "Add bot using this URL\nhttps://discordapp.com/oauth2/authorize?client_id=419667532820250635&scope=bot&permissions=2146958463\n\n Join our official Discord for discussions about the bot! https://discord.gg/https://discord.gg/Q7Kgd8g"
         }
       })
     }
