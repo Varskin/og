@@ -32,7 +32,15 @@ module.exports = async message => {
         }
       ]
     });
-
+    
+    if(message.isMentioned(client.users.get('419667532820250635'))) {
+      message.channel.send({
+      embed: {
+        color: Bastion.colors.BLUE,
+        description: 'https://discord.gg/Q7Kgd8g'
+      }
+    })
+    }
     // Add guild's prefix to the discord.js guild object to minimize database reads.
     guildModel.dataValues.prefix.concat(message.client.config.prefix);
     if (!message.guild.prefix || !_.isEqual(message.guild.prefix, guildModel.dataValues.prefix)) {
