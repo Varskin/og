@@ -98,11 +98,11 @@ exports.exec = async (Bastion, message, args) => {
           title: 'Help',
           description: `To get the list of commands, type \`${message.guild.prefix[0]}commands\`.` +
                        `\nTo get help about a specific command, type \`${message.guild.prefix[0]}help <command_name>\`.` +
-                       `\n\nNeed help or support with Superbot?\n${message.guild.id === '439263365483855902' ? 'Ask for help in the <#441072823432118283> channel.' : 'Join [**Super HQ**](https://discord.gg/XnYbAn) for testing the commands or any help you need with the bot or maybe just for fun.\nhttps://discord.gg/XnYbAn'}`,
+                       `\n\nNeed help or support with Superbot?\n${message.guild.id === '439263365483855902' ? 'Ask for help in the <#441072823432118283> channel.' : 'Join [**Super HQ**](https://discord.gg/Q7Kgd8g) for testing the commands or any help you need with the bot or maybe just for fun.\nhttps://discord.gg/Q7Kgd8g'}`,
           fields: [
             {
               name: 'Super HQ Invite Link',
-              value: 'https://discord.gg/XnYbAn'
+              value: 'https://discord.gg/Q7Kgd8g'
             },
             {
               name: 'Superbot Invite Link',
