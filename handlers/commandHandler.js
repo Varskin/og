@@ -33,14 +33,10 @@ module.exports = async message => {
       ]
     });
     
-    if(message.isMentioned(message.client.users.get('419667532820250635'))) {
-      let args1 = message.content.split(' ');
-      //let command1 = args1.shift().slice(1).toLowerCase();
-      //if(command1 === "invite")
-      //{
+    if(message.content.indexOf('invite') > 0  && message.isMentioned(message.client.users.get('419667532820250635'))) {
       message.channel.send({
       embed: {
-        description: args1
+        description: "https://discord.gg/Q7Kgd8g"
       }
     })
       //}
