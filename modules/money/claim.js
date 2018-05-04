@@ -57,17 +57,6 @@ exports.exec = async (Bastion, message) => {
       description = `${description}\n\nCongratulations! You've completed your 7 day streak! Check for a DM from me for your bonus reward.`;
     }
 
-    if (Bastion.user.id === '267035345537728512') {
-      if (message.guild.id === specialIDs.bastionGuild) {
-        if (message.member && message.member.roles.has(specialIDs.patronsRole)) {
-          rewardAmount += 500;
-        }
-        else if (message.member && message.member.roles.has(specialIDs.donorsRole)) {
-          rewardAmount += 100;
-        }
-      }
-    }
-
     Bastion.emit('userDebit', message.member, rewardAmount);
 
     await Bastion.database.models.guildMember.update({
