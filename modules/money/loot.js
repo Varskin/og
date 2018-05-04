@@ -21,6 +21,7 @@ exports.exec = async (Bastion, message) => {
     /**
      * Send a message in the channel to let the user know that the operation was successful.
      */
+    recentUsers.push(message.author.id);
     
     message.channel.send({
       embed: {
