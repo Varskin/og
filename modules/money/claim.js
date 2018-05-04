@@ -56,6 +56,17 @@ exports.exec = async (Bastion, message) => {
       rewardAmount += Bastion.functions.getRandomInt(350, 700);
       description = `${description}\n\nCongratulations! You've completed your 7 day streak! Check for a DM from me for your bonus reward.`;
     }
+    
+    let guildMemberModel2 = await message.client.database.models.guildMember.findOne({
+        attributes: [ 'bastionCurrencies' ],
+        where: {
+          userID: message.author.id,
+          guildID: message.guild.id
+        }
+      });
+      
+    let curr = guildMemberModel2.dataValues.bastionCurrencies;
+    let curr2 = parseInt(rewardAmount)+parseInt(curr);
 
     Bastion.emit('userDebit', message.member, rewardAmount);
 
@@ -83,16 +94,7 @@ exports.exec = async (Bastion, message) => {
       Bastion.log.error(e);
     });
     
-    let guildMemberModel2 = await message.client.database.models.guildMember.findOne({
-        attributes: [ 'bastionCurrencies' ],
-        where: {
-          userID: message.author.id,
-          guildID: message.guild.id
-        }
-      });
-      
-    let curr = guildMemberModel2.dataValues.bastionCurrencies;
-    let curr2 = parseInt(rewardAmount)+parseInt(curr);
+    
 
     /**
      * Let the user know by DM that their account has been debited.
