@@ -10,7 +10,7 @@ let recentUsers = [];
 
 exports.exec = async (Bastion, message) => {
   try {
-    let cooldown = 10;
+    let cooldown = 1;
     if (!recentUsers.includes(message.author.id)) {
     
     let rewardAmount = Bastion.functions.getRandomInt(50, 100);
@@ -33,7 +33,7 @@ exports.exec = async (Bastion, message) => {
     
     setTimeout(() => {
         recentUsers.splice(recentUsers.indexOf(message.author.id), 1);
-      }, cooldown * 1);
+      }, cooldown * 1000);
 
     /**
      * Let the user know by DM that their account has been debited.
