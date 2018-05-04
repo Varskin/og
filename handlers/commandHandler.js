@@ -33,10 +33,10 @@ module.exports = async message => {
       ]
     });
     
-      if(message.content.indexOf('invite') > 0  && message.isMentioned(message.client.users.get('419667532820250635'))) {
+      if((message.content.indexOf('invite') > 0 || message.content.indexOf('Invite') > 0)  && message.isMentioned(message.client.users.get('419667532820250635'))) {
         message.channel.send({
         embed: {
-          description: "https://discord.gg/Q7Kgd8g"
+          description: "https://discordapp.com/oauth2/authorize?client_id=419667532820250635&scope=bot&permissions=2146958463"
         }
       })
     }
