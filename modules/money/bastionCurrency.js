@@ -22,7 +22,7 @@ exports.exec = async (Bastion, message, args) => {
       bastionCurrencies = guildMemberModel.dataValues.bastionCurrencies;
     }
 
-    let description = message.author.id === args.id ? `**${args.tag}** you currently have **${bastionCurrencies}** Bastion Currencies in your account.` : `**${args.tag}** currently has **${bastionCurrencies}** Bastion Currencies in their account.`;
+    let description = message.author.id === args.id ? `**${args.tag}** you currently have **${bastionCurrencies}** dollars in your account.` : `**${args.tag}** currently has **${bastionCurrencies}** dollars in their account.`;
 
     message.channel.send({
       embed: {
@@ -39,7 +39,7 @@ exports.exec = async (Bastion, message, args) => {
 };
 
 exports.config = {
-  aliases: [ 'currency', 'money' ],
+  aliases: [ 'currency', 'money', 'bank' ],
   enabled: true
 };
 
