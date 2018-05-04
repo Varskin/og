@@ -94,7 +94,7 @@ exports.exec = async (Bastion, message) => {
       Bastion.log.error(e);
     });
     
-    let guildMemberModel = await message.client.database.models.guildMember.findOne({
+    let guildMemberModel2 = await message.client.database.models.guildMember.findOne({
         attributes: [ 'bastionCurrencies' ],
         where: {
           userID: message.author.id,
@@ -102,7 +102,7 @@ exports.exec = async (Bastion, message) => {
         }
       });
       
-    let curr = guildMemberModel.dataValues.bastionCurrencies;
+    let curr = guildMemberModel2.dataValues.bastionCurrencies;
     let curr2 = parseInt(rewardAmount)+parseInt(curr);
 
     /**
