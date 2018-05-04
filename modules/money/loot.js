@@ -44,12 +44,6 @@ exports.exec = async (Bastion, message) => {
         color: Bastion.colors.GREEN,
         description: `Your account has been debited with **${rewardAmount}** Bastion Currencies.`
       }
-       });
-    }
-      else
-      {
-    return Bastion.emit('error', Bastion.strings.error(message.guild.language, 'cooldown'), Bastion.strings.error(message.guild.language, 'claimCooldown', true, message.author), message.channel);
-    }
     }).catch(e => {
       if (e.code !== 50007) {
         Bastion.log.error(e);
@@ -59,6 +53,11 @@ exports.exec = async (Bastion, message) => {
   catch (e) {
     Bastion.log.error(e);
   }
+    }
+      else
+      {
+    return Bastion.emit('error', Bastion.strings.error(message.guild.language, 'cooldown'), Bastion.strings.error(message.guild.language, 'claimCooldown', true, message.author), message.channel);
+    }
 };
 
 exports.config = {
