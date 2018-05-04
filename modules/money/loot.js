@@ -10,7 +10,7 @@ let recentUsers = [];
 
 exports.exec = async (Bastion, message) => {
   try {
-    let cooldown = 10;
+    let cooldown = 100;
     if (!recentUsers.includes(message.author.id)) {
     
     let rewardAmount = Bastion.functions.getRandomInt(50, 100);
