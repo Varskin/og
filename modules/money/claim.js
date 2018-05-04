@@ -93,14 +93,25 @@ exports.exec = async (Bastion, message) => {
     }).catch(e => {
       Bastion.log.error(e);
     });
+    
+    let guildMemberModel = await message.client.database.models.guildMember.findOne({
+        attributes: [ 'bastionCurrencies' ],
+        where: {
+          userID: message.author.id,
+          guildID: message.guild.id
+        }
+      });
+      
+    let curr = guildMemberModel.dataValues.bastionCurrencies;
+    let curr2 = parseInt(rewardAmount)+parseInt(curr);
 
     /**
      * Let the user know by DM that their account has been debited.
      */
-    message.author.send({
+    message.channel.send({
       embed: {
         color: Bastion.colors.GREEN,
-        description: `Your account, in **${message.guild.name}** Server, has been debited with **${rewardAmount}** Bastion Currencies.`
+        description: `Your account has been debited with **${rewardAmount}** dollars. You now have **${curr2}** dollars.`
       }
     }).catch(e => {
       if (e.code !== 50007) {
