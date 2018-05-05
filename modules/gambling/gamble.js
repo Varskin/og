@@ -17,8 +17,23 @@ exports.exec = async (Bastion, message, args) => {
         */
         return Bastion.emit('commandUsage', message, this.help);
       }
-
+      
+      let guildMemberModel = await message.client.database.models.guildMember.findOne({
+        attributes: [ 'bastionCurrencies' ],
+        where: {
+          userID: message.author.id,
+          guildID: message.guild.id
+        }
+      });
+      
+      if(args.toLowerCase() === 'all'))
+      {
+      args = parseInt(guildMemberModel.dataValues.bastionCurrencies);
+      }
+      else
+      {
       args = parseInt(args);
+      }
 
       let minAmount = 5;
       if (args < minAmount) {
@@ -36,13 +51,7 @@ exports.exec = async (Bastion, message, args) => {
       ];
       let outcome = outcomes[Math.floor(Math.random() * outcomes.length)];
 
-      let guildMemberModel = await message.client.database.models.guildMember.findOne({
-        attributes: [ 'bastionCurrencies' ],
-        where: {
-          userID: message.author.id,
-          guildID: message.guild.id
-        }
-      });
+      
 
       guildMemberModel.dataValues.bastionCurrencies = parseInt(guildMemberModel.dataValues.bastionCurrencies);
 
