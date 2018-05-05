@@ -10,7 +10,7 @@ exports.exec = async (Bastion, message, args) => {
   try {
     let cooldown = 0;
     if (!recentUsers.includes(message.author.id)) {
-      if (!args || args < 1 || isNaN(args)) {
+      if (!args || args < 1 || (isNaN(args) && args !== "all")) {
         /**
         * The command was ran with invalid parameters.
         * @fires commandUsage
