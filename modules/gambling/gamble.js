@@ -26,7 +26,7 @@ exports.exec = async (Bastion, message, args) => {
         }
       });
       
-      if(args.toLowerCase() === 'all'))
+      if(args.toLowerCase() === 'all')
       {
       args = parseInt(guildMemberModel.dataValues.bastionCurrencies);
       }
