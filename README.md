@@ -19,6 +19,7 @@ Superbot is a multipurpose Discord bot intended to be able to perform various ta
 - And more, join our [discord](https://discord.gg/XnYbAn) for a list of all the commands!
 
 Join our [discord](https://discord.gg/XnYbAn) for more information.
+Invite the [bot](https://discordapp.com/oauth2/authorize?client_id=419667532820250635&scope=bot&permissions=2146958463).
 
 ---
 
