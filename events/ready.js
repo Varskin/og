@@ -20,7 +20,7 @@ module.exports = async Bastion => {
     Bastion.user.setPresence({
               status: Bastion.config.status,
               game: {
-        name: `Join #savvysquad`,
+        name: `@Superbot Invite`,
         type: Bastion.config.game.type,
         url: Bastion.config.game.url && Bastion.config.game.url.trim().length ? Bastion.config.game.url : null
       }
